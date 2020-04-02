@@ -4,13 +4,15 @@ import 'package:audioplayers/audio_cache.dart';
 void main() => runApp(XylophoneApp());
 
 Widget xyloBar(Color color, int note) {
-  return FlatButton(
-    color: color,
-    onPressed: () {
-      final player = AudioCache();
-      player.play('note$note.wav');
-    },
-    child: Text(''),
+  return Expanded(
+    child: FlatButton(
+      color: color,
+      onPressed: () {
+        final player = AudioCache();
+        player.play('note$note.wav');
+      },
+      child: Text(''),
+    ),
   );
 }
 
@@ -18,9 +20,12 @@ class XylophoneApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               xyloBar(Colors.red, 1),
               xyloBar(Colors.orange, 2),
