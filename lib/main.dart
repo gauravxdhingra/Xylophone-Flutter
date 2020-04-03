@@ -10,6 +10,7 @@ Widget xyloBar(Color color, int note) {
       onPressed: () {
         final player = AudioCache();
         player.play('note$note.wav');
+        player.disableLog();
       },
       child: Text(''),
     ),
@@ -22,7 +23,7 @@ class XylophoneApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.red,
         body: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
